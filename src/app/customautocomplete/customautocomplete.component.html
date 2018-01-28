@@ -1,0 +1,17 @@
+<mat-form-field class="example-full-width">
+  <input matInput 
+        #objectCtrl="ngModel" 
+        [(ngModel)] = "value"
+        [matAutocomplete]="auto" 
+        (ngModelChange)="tempobjects = filterObjects(value)"        
+        [placeholder]="placeholder"
+        [attr.aria-label]="ariaLabel" 
+        [name]="name" 
+        [id]="id"
+        (blur)="onBlur()">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let object of tempobjects" [value]="object[objectNameProperty]">
+      <span>{{ object[objectNameProperty] }}</span>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

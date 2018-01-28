@@ -1,0 +1,29 @@
+<form #f="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput 
+          #manufacturerCtrl="ngModel" 
+          [(ngModel)] = "currentManufacturer"
+          [matAutocomplete]="auto" 
+          (ngModelChange)="tdManufacturers = filterManufacturers(currentManufacturer)"        
+          placeholder="Manufacturer" 
+          aria-label="Manufacturer" 
+          name="manufacturerCtrl" 
+          id="manufacturerCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let manufacturer of tdManufacturers" [value]="manufacturer.manufacturerName">
+        <span>{{ manufacturer.manufacturerName }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <sza-customautocomplete [(ngModel)] = "dataModel"
+                      [name]="'manufacturerCtrl2'" 
+                      [id]="'manufacturerCtrl2'" 
+                      [placeholder]="'Manufacturer'" 
+                      [ariaLabel]="'Manufacturer'"
+                      [objectNameProperty]="'manufacturerName'"
+                      #variable="ngModel">
+  </sza-customautocomplete>
+  </form>
+  <pre>Form Values: {{f.value | json}}</pre>
+  <pre>Input Value: {{manufacturerCtrl.value | json}}</pre>
+  <pre>Input Value: {{variable.value | json}}</pre>

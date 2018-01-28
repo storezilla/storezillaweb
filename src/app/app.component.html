@@ -1,0 +1,51 @@
+<mat-toolbar class="mat-elevation" color="primary" role="header">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon class="md-24">menu</mat-icon>
+    </button>
+    <span>StoreZilla Administration</span>
+</mat-toolbar>  
+<div class="someclass">
+<mat-sidenav-container class="at-container">
+  <mat-sidenav #sidenav mode="side">
+    <mat-nav-list>
+      <mat-list-item routerLink="/stores">
+        <mat-icon matListIcon>store</mat-icon>
+        <a matLine>Store</a>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon matListIcon>collections_bookmark</mat-icon>
+        <a routerLink="/categories" matLine>Categories</a>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon matListIcon>personal_video</mat-icon>
+        <a routerLink="/products" matLine>Products</a>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon matListIcon>add_shopping_cart</mat-icon>
+        <a routerLink="/orders" matLine>Orders Management</a>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon matListIcon>local_shipping</mat-icon>
+        <a routerLink="/shipping" matLine>Shipping Management</a>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon matListIcon>account_box</mat-icon>
+        <a routerLink="/users" matLine>User Management</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="at-sidenav-content">
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

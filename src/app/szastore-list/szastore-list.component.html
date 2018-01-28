@@ -1,0 +1,57 @@
+<sza-containertable [containerTitle]="storeTitle">
+  <table class="ui celled structured table" style="border-style:none">
+    <tr>
+      <td class="at-addbutton" style="border-style:none">
+        <button mat-raised-button color="primary" (click)="addStore()">                                  
+          <mat-icon aria-label="Add Mode">add</mat-icon>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style:none">
+        <table class="ui celled structured table">
+          <thead class="full-width">
+            <th>
+              <h5 class="ui header">
+                <i class="list icon"></i>
+                <div class="content">Store List</div>
+              </h5>
+            </th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <table class="ui celled structured table" border="1">
+                  <thead class="full-width">
+                    <tr>
+                      <th>Store Name</th>
+                      <th>Store URL</th>
+                      <th>Edit</th>
+                      <th>Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let store of stores">
+                      <td>{{store.storeName}}</td>
+                      <td>{{store.storeURL}}</td>
+                        <td>
+                            <button mat-raised-button color="primary" (click)="editStore(store)">
+                                  <mat-icon aria-label="Edit Mode">edit_mode</mat-icon>
+                            </button>
+                        </td>
+                      <td>
+                          <button mat-raised-button color="warn" (click)="removeStore(store)">
+                            <mat-icon aria-label="Delete Mode">delete_mode</mat-icon>
+                          </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </table>
+</sza-containertable>

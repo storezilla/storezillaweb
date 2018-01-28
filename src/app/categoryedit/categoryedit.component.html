@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">Category Edit</mat-toolbar>
+<form #categoryEditForm="ngForm" name="category" (ngSubmit)="submit(categoryEditForm)">
+  <table class="ui structured table">
+    <tr>
+      <td style="border-style:none;float:right">
+        <button type="submit" mat-raised-button color="primary">
+          <mat-icon aria-label="Add Mode">save</mat-icon>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="tab-container">
+          <mat-tab-group>
+            <mat-tab label="General">
+              <div class="field-container">
+                <input type="hidden" [(ngModel)]="category.categoryId" name="categoryId">
+                <mat-form-field style="width:100%">
+                  <mat-icon matSuffix>collections_bookmark</mat-icon>
+                  <input [(ngModel)]="category.categoryName" name="categoryName" matInput placeholder="Category Name">
+                </mat-form-field>
+              </div>
+              <div class="field-container">
+                <quill-editor [(ngModel)]="category.categoryDescription" name="categoryDescription" [options]="editorOptions"></quill-editor>
+              </div>
+              <div class="field-container">
+                <mat-form-field style="width:100%">
+                  <input [(ngModel)]="category.metaTitle" name="metaTitle" matInput placeholder="Meta Title">
+                </mat-form-field>
+              </div>
+              <div class="field-container">
+                <mat-form-field style="width:100%">
+                  <textarea [(ngModel)]="category.metaDescription" name="metaDescription" matInput placeholder="Meta Tag Description"></textarea>
+                </mat-form-field>
+              </div>
+              <div class="field-container">
+                <mat-form-field style="width:100%">
+                  <textarea [(ngModel)]="category.metaKeywords" name="metaKeywords" matInput placeholder="Meta Tag Keyword"></textarea>
+                </mat-form-field>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>

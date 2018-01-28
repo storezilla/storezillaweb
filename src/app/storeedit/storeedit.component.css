@@ -1,0 +1,6 @@
+  .table {
+    border-style: none;
+  }
+  .ui.table tr td {
+    border-top: none;
+  }

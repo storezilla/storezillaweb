@@ -1,0 +1,121 @@
+<mat-toolbar color="primary">Store Edit</mat-toolbar>
+<form #storeEditForm="ngForm" name="store" (ngSubmit)="submit(storeEditForm)">
+  <table>
+    <tr>
+      <td style="border-style:none;float:right">
+        <button type="submit" mat-raised-button color="primary">
+          <mat-icon aria-label="Add Mode">save</mat-icon>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table class="ui structured table">
+          <tr>
+            <td>
+              <mat-tab-group>
+                <mat-tab label="General">
+                  <div class="example-container">
+                    <table class="ui very basic table">
+                      <tr>
+                        <td>
+                          <input type="hidden" [(ngModel)]="store.storeId" name="storeId">
+                          <mat-form-field>
+                              <mat-icon matSuffix>store</mat-icon>
+                              <input [(ngModel)]="store.storeName" name="storeName" matInput placeholder="Store Name">
+                          </mat-form-field>
+                        </td>
+                        <td>
+                          <mat-form-field>
+                            <mat-icon matSuffix>public</mat-icon>
+                            <input [(ngModel)]="store.storeURL" name="storeURL" matInput placeholder="Store URL">
+                          </mat-form-field>
+                        </td>
+                        <td>
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field>
+                              <input [(ngModel)]="store.storeDetails.owner" name="owner" matInput placeholder="Store Owner">
+                            </mat-form-field>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field style="width:100%">
+                              <textarea [(ngModel)]="store.storeDetails.address" name="address" matInput placeholder="Address"></textarea>
+                            </mat-form-field>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field style="width:100%">
+                              <input [(ngModel)]="store.storeDetails.geoCode" name="geoCode" matInput placeholder="Geocode">
+                            </mat-form-field>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field>
+                              <mat-icon matSuffix>email</mat-icon>
+                              <input [(ngModel)]="store.storeDetails.eMail" name="eMail" matInput placeholder="Email">
+                            </mat-form-field>
+                          </div>
+                        </td>
+                        <td>
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field>
+                              <mat-icon matSuffix>call</mat-icon>
+                              <input [(ngModel)]="store.storeDetails.telePhone" name="telePhone" matInput placeholder="Telephone">
+                            </mat-form-field>
+                          </div>
+                        </td>
+                        <td>
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field>
+                              <input [(ngModel)]="store.storeDetails.fax" name="fax" matInput placeholder="Fax">
+                            </mat-form-field>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <mat-form-field style="width:100%">
+                            <input matInput placeholder="Image">
+                          </mat-form-field>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field style="width:100%">
+                              <input [(ngModel)]="store.storeDetails.openingTimes" name="openingTimes" matInput placeholder="Opening Times">
+                            </mat-form-field>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <div ngModelGroup="storeDetails">
+                            <mat-form-field style="width:100%">
+                              <mat-icon matSuffix>comment</mat-icon>
+                              <input [(ngModel)]="store.storeDetails.comment" name="comment" matInput placeholder="Comments">
+                            </mat-form-field>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
